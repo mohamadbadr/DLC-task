@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:weightSum="10"
+    tools:context="com.example.mbadr.technicaltask.booking">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@drawable/booking_top">
+
+
+
+
+        <TextView
+            android:id="@+id/book_Flight_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Book Your Flight"
+            android:textAllCaps="false"
+            android:textColor="#00A3DA"
+            android:textSize="30dp" />
+
+        <co.ceryle.segmentedbutton.SegmentedButtonGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:sbg_selectorColor="@color/babyBlue"
+            android:background="@drawable/curved_background_15dp"
+            android:backgroundTint="@color/white"
+            android:elevation="0.5dp"
+            app:sbg_dividerSize="0dp"
+            app:sbg_radius="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/from_text"
+            >
+            <co.ceryle.segmentedbutton.SegmentedButton
+                android:id="@+id/roundtrip_button"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                app:sb_text="RoundTrip"
+                app:sb_textSize="15dp"
+                app:sb_textColor="@color/babyBlue"
+                android:clickable="true"
+                app:sb_textColor_onSelection="@color/white"/>
+
+            <co.ceryle.segmentedbutton.SegmentedButton
+                android:id="@+id/one_way_button"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                app:sb_text="One Way"
+                app:sb_textSize="15dp"
+                app:sb_textColor="@color/babyBlue"
+                app:sb_textColor_onSelection="@color/white"
+                android:onClick="onClick"
+                android:clickable="true"
+                />
+        </co.ceryle.segmentedbutton.SegmentedButtonGroup>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25">
+
+                <TextView
+                    android:id="@+id/from_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="From"
+                    android:textColor="#C9C9C9"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/from_city_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/from_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="Select City"
+                    android:textAllCaps="false"
+                    android:textColor="#00A3DA"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/switch_button"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25">
+
+                <TextView
+                    android:id="@+id/to_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="To"
+                    android:textSize="15dp"
+                    android:textColor="#C9C9C9" />
+
+                <Button
+                    android:id="@+id/to_city_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/to_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="Select City"
+                    android:textAllCaps="false"
+                    android:textColor="#00A3DA"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#EBEBEB"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25">
+
+            <TextView
+                android:id="@+id/depart_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Depart"
+                android:textColor="#C9C9C9"
+                android:textSize="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/Depart_date_text"
+                android:layout_alignStart="@+id/Depart_date_text" />
+
+            <TextView
+                android:id="@+id/Depart_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/depart_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="6 jan"
+                android:textAllCaps="false"
+                android:textColor="#00A3DA"
+                android:textSize="20dp" />
+
+            <ImageButton
+                android:layout_width="15dp"
+                android:layout_height="7.5dp"
+                android:background="@drawable/down_arrow"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/Depart_date_text"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/depart_day_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/Depart_date_text"
+                android:layout_below="@id/Depart_date_text"
+                android:text="Thursday"
+                android:textColor="#00A3DA"
+                android:textSize="7dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"></RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:background="#EBEBEB">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25">
+
+            <TextView
+                android:id="@+id/return_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/Return_date_Text"
+                android:text="Return"
+                android:textColor="#C9C9C9"
+                android:textSize="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/Return_date_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/return_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="14 Jan"
+                android:textAllCaps="false"
+                android:textColor="#00A3DA"
+                android:textSize="20dp" />
+
+            <ImageButton
+                android:id="@+id/return_date_button"
+                android:layout_width="15dp"
+                android:layout_height="7.5dp"
+                android:background="@drawable/down_arrow"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/Return_date_Text"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/Return_date_Text"
+                android:layout_below="@id/Return_date_Text"
+                android:text="Friday"
+                android:textColor="#00A3DA"
+                android:textSize="7dp"
+                android:id="@+id/return_day_text" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#EBEBEB"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <TextView
+            android:id="@+id/passenger_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Passengers"
+            android:textAllCaps="false"
+            android:textColor="#C9C9C9"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/passenger_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/passenger_text"
+            android:layout_below="@+id/passenger_text"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:text="1 Adult"
+            android:textAllCaps="false"
+            android:textColor="#00A3DA"
+            android:textSize="20dp" />
+
+        <ImageButton
+            android:id="@+id/add_passenger_button"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/add_button"
+            android:layout_below="@+id/passenger_text"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/passenger_count"
+            android:layout_marginLeft="5dp"
+            android:onClick="onClick"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#EBEBEB"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <TextView
+            android:id="@+id/class_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="class"
+            android:textAllCaps="false"
+            android:textSize="15dp"
+            android:textColor="#C9C9C9"
+            />
+
+            android:weightSum="3">
+            <Button
+
+                android:id="@+id/economy_button"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:background="@drawable/curved_background_15dp"
+                android:layout_below="@+id/class_text"
+                android:layout_toLeftOf="@+id/business_button"
+                android:layout_marginRight="10dp"
+                android:text="Economy"
+                android:textAllCaps="false"
+                android:layout_marginTop="15dp"
+                android:stateListAnimator="@null"
+                android:onClick="onClick"/>
+
+            <Button
+                android:id="@+id/business_button"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:background="@drawable/curved_background_colored_edge_15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/class_text"
+                android:text="Business"
+                android:textColor="#1B9DC6"
+                android:textAllCaps="false"
+                android:layout_marginTop="15dp"
+                android:stateListAnimator="@null"
+                android:onClick="onClick"/>
+        <Button
+            android:id="@+id/firstclass_button"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:background="@drawable/curved_background_colored_edge_15dp"
+            android:layout_below="@+id/class_text"
+            android:layout_toRightOf="@+id/business_button"
+            android:layout_marginLeft="10dp"
+            android:text="First Class"
+            android:textColor="#1B9DC6"
+            android:textAllCaps="false"
+            android:layout_marginTop="15dp"
+            android:stateListAnimator="@null"
+            android:onClick="onClick"/>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        >
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/curved_background_15dp"
+            android:backgroundTint="#17DEA3"
+            android:text="Search"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:stateListAnimator="@null"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
