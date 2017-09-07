@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.mbadr.technicaltask.Languages">
 
-    <TextView
-        android:id="@+id/languages_response"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ListView
+        android:id="@+id/respons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"></ListView>
 
 </RelativeLayout>

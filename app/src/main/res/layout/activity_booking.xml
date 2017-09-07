@@ -160,12 +160,12 @@
                 android:id="@+id/depart_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/Depart_date_text"
+                android:layout_alignStart="@+id/Depart_date_text"
+                android:layout_marginTop="10dp"
                 android:text="Depart"
                 android:textColor="#C9C9C9"
-                android:textSize="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_alignLeft="@+id/Depart_date_text"
-                android:layout_alignStart="@+id/Depart_date_text" />
+                android:textSize="10dp" />
 
             <TextView
                 android:id="@+id/Depart_date_text"
@@ -182,11 +182,11 @@
             <ImageButton
                 android:layout_width="15dp"
                 android:layout_height="7.5dp"
-                android:background="@drawable/down_arrow"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/Depart_date_text"
-                android:layout_marginTop="5dp"/>
+                android:background="@drawable/down_arrow" />
 
             <TextView
                 android:id="@+id/depart_day_text"
@@ -224,10 +224,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/Return_date_Text"
+                android:layout_marginTop="10dp"
                 android:text="Return"
                 android:textColor="#C9C9C9"
-                android:textSize="10dp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="10dp" />
 
             <TextView
                 android:id="@+id/Return_date_Text"
@@ -245,24 +245,24 @@
                 android:id="@+id/return_date_button"
                 android:layout_width="15dp"
                 android:layout_height="7.5dp"
-                android:background="@drawable/down_arrow"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/Return_date_Text"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                 />
+                android:layout_toRightOf="@id/Return_date_Text"
+                android:background="@drawable/down_arrow" />
 
             <TextView
+                android:id="@+id/return_day_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/Return_date_Text"
                 android:layout_below="@id/Return_date_Text"
                 android:text="Friday"
                 android:textColor="#00A3DA"
-                android:textSize="7dp"
-                android:id="@+id/return_day_text" />
+                android:textSize="7dp" />
         </RelativeLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
