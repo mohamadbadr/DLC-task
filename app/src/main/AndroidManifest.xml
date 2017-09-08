@@ -17,14 +17,16 @@
         <activity
             android:name=".splash"
             android:theme="@style/splash">
+
+        </activity>
+        <activity android:name=".booking"></activity>
+        <activity android:name=".Languages">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".booking"></activity>
-        <activity android:name=".Languages"></activity>
     </application>
 
 </manifest>
