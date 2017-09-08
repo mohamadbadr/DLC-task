@@ -32,10 +32,25 @@ public class Languages extends AppCompatActivity {
         languagesList =  new ArrayList<>();
 
         lv = (ListView) findViewById(R.id.respons);
-//        new GetLanguages().execute();
+        new GetLanguages().execute();
     }
 
+    private class GetLanguages extends AsyncTask<Void,Void,Void>
+    {
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(Languages.this);
+            pDialog.setMessage("Please wait...");
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
 
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            return null;
+        }
+    }
 
 
 }
