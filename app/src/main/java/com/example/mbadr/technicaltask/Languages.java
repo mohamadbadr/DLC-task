@@ -5,7 +5,10 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,11 +51,60 @@ public class Languages extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
+            HttpHandler sh = new HttpHandler();
+            String jsonStr = sh.makeServiceCall(url);
+
+            Log.e(TAG, jsonStr);
+
+            if(jsonStr != null)
+            {
+                try {
+                    JSONArray response = new JSONArray(jsonStr);
+
+                    for(int i =0; i < response.length();i++)
+                    {
+                        JSONObject currentLanguage = response.getJSONObject(i);
+
+                        String abbrev = currentLanguage.getString("abbrev");
+                        String  title = currentLanguage.getString("title");
+
+                        HashMap<String, String> language = new HashMap<>();
+                        language.put("title",title);
+                        language.put("abbrev",abbrev);
+
+
+                        languagesList.add(language);
+                    }
+                } catch (final JSONException e) {
+                    Log.e(TAG, "Json parsing error: " + e.getMessage());
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(),"Json parsing error: " + e.getMessage(),Toast.LENGTH_LONG
+                            ).show();
+                        }
+                    });
+                }
+            }
+            else
+            {
+                Log.e(TAG, "couldn't get json from server.");
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),"couldn't get json from server.",Toast.LENGTH_LONG
+                        ).show();
+                    }
+                });
+
+            }
             return null;
         }
     }
 
 
 }
+
 
 
