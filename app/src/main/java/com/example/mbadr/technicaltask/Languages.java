@@ -101,6 +101,18 @@ public class Languages extends AppCompatActivity {
             }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            if(pDialog.isShowing())
+                pDialog.dismiss();
+            ListAdapter adapter =  new SimpleAdapter(Languages.this,languagesList,
+                    R.layout.language_list_item,new String[]{"abbrev","title"},
+                    new int[] {R.id.language_Image_button,R.id.language_button});
+            lv.setAdapter(adapter);
+        }
     }
 
 

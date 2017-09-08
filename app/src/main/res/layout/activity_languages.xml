@@ -4,11 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mbadr.technicaltask.Languages">
+    android:background="@color/white"
+    tools:context="com.example.mbadr.technicaltask.Languages"
+    >
+
+    <TextView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/babyBlue"
+        android:text="Select Language"
+        android:gravity="center_horizontal"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        />
 
     <ListView
         android:id="@+id/respons"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bar"
+        >
+
+
+    </ListView>
 
 </RelativeLayout>
