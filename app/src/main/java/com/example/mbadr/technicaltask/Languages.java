@@ -1,6 +1,7 @@
 package com.example.mbadr.technicaltask;
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,6 +33,10 @@ public class Languages extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_languages);
+
+        Typeface relway_semiBold = Typeface.createFromAsset(getAssets(), "fonts/Raleway-SemiBold.ttf");
+        TextView title_bar = (TextView) findViewById(R.id.title_bar);
+        title_bar.setTypeface(relway_semiBold);
 
         languagesList =  new ArrayList<>();
 
@@ -108,9 +114,8 @@ public class Languages extends AppCompatActivity {
 
             if(pDialog.isShowing())
                 pDialog.dismiss();
-            ListAdapter adapter =  new SimpleAdapter(Languages.this,languagesList,
-                    R.layout.language_list_item,new String[]{"abbrev","title"},
-                    new int[] {R.id.language_Image_button,R.id.language_button});
+            LanguageListAdapter adapter = new LanguageListAdapter(languagesList,Languages.this);
+
             lv.setAdapter(adapter);
         }
     }

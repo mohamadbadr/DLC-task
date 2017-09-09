@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:weightSum="4"
     >
 
     <ImageView
         android:id="@+id/language_Image_button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:src="@drawable/deu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
         />
+
     <Button
         android:id="@+id/language_button"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_marginLeft="10dp"
         android:textColor="#C9C9C9"
-        android:textAllCaps="false"
+        android:textSize="15dp"
         android:background="@color/white"
         android:gravity="left"
+        android:layout_toRightOf="@+id/language_Image_button"
+        android:stateListAnimator="@null"
         />
 
-</LinearLayout>
+</RelativeLayout>

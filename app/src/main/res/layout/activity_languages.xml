@@ -12,14 +12,18 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/babyBlue"
+        android:background="#2A6FC0"
         android:text="Select Language"
         android:gravity="center_horizontal"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
+        android:paddingTop="10dp"
         />
 
     <ListView
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:id="@+id/respons"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
