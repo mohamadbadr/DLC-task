@@ -21,6 +21,8 @@ import java.util.HashMap;
 
 public class Languages extends AppCompatActivity {
 
+    // local variables
+
     private static String url = "https://www.memphistours.com/ws/languages/all_languages/ ";
 
     private String TAG = Languages.class.getSimpleName();
@@ -28,24 +30,34 @@ public class Languages extends AppCompatActivity {
     private ProgressDialog pDialog;
     private ListView lv;
 
+    //Array of HashMaps, each HashMap represents a language instead of creating a class language.
     ArrayList<HashMap<String,String>> languagesList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_languages);
 
+        //Used fonts
         Typeface relway_semiBold = Typeface.createFromAsset(getAssets(), "fonts/Raleway-SemiBold.ttf");
+
+        //assigning fonts to text
         TextView title_bar = (TextView) findViewById(R.id.title_bar);
         title_bar.setTypeface(relway_semiBold);
 
         languagesList =  new ArrayList<>();
 
+        // Getting view's listView
         lv = (ListView) findViewById(R.id.respons);
+
+
         new GetLanguages().execute();
     }
 
+    // Getlanguage is a private class to get the Json response, hadnle the retrieved data and adding the listView
     private class GetLanguages extends AsyncTask<Void,Void,Void>
     {
+        // initializing a progress dialog until data is retrieved.
         protected void onPreExecute()
         {
             super.onPreExecute();
@@ -65,8 +77,10 @@ public class Languages extends AppCompatActivity {
             if(jsonStr != null)
             {
                 try {
+                    // respons is the json array that holds language objects.
                     JSONArray response = new JSONArray(jsonStr);
 
+                    // this loop is separate each language in a single HashMap and add it to LanguageList ArrayList.
                     for(int i =0; i < response.length();i++)
                     {
                         JSONObject currentLanguage = response.getJSONObject(i);
@@ -77,7 +91,6 @@ public class Languages extends AppCompatActivity {
                         HashMap<String, String> language = new HashMap<>();
                         language.put("title",title);
                         language.put("abbrev",abbrev);
-
 
                         languagesList.add(language);
                     }
@@ -108,6 +121,7 @@ public class Languages extends AppCompatActivity {
             return null;
         }
 
+        // dismissing the progress dialog and calling the custom adapter.
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);

@@ -15,6 +15,8 @@ import java.net.URL;
  * Created by mbadr on 9/7/2017.
  */
 
+
+//this class is created to establish a connection between the application and a given link
 public class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();

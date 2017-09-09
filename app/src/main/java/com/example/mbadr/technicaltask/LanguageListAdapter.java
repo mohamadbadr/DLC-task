@@ -30,9 +30,13 @@ import static android.R.attr.targetPackage;
  * Created by mbadr on 9/8/2017.
  */
 
+//this class is created because we can't match the abbreviation of the language to its logo. so we had to override the
+//the existing arrayadapter and handle the logo case.
+
 public class LanguageListAdapter extends ArrayAdapter<HashMap<String, String>> {
 
 
+    // Local variables
     private ArrayList<HashMap<String,String>> languages;
     Context context;
 
@@ -49,21 +53,15 @@ public class LanguageListAdapter extends ArrayAdapter<HashMap<String, String>> {
         this.context = context;
     }
 
-//    public static Drawable stringToDrawable(String name)
-//    {
-//        int id = Resources.getSystem().getIdentifier(name,"drawable", String.valueOf(packageNames));
-//
-//    }
-
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        HashMap<String,String> language = getItem(position);
-        String abbrev = language.get("abbrev");
 
+        // Getting current langauge from languages array
+        HashMap<String,String> language = getItem(position);
+        // Getting the abbreviation of the current language to et the id of the desired drawable resource.
+        String abbrev = language.get("abbrev");
         int id = this.context.getResources().getIdentifier(abbrev,"drawable",this.context.getPackageName());
-//        Log.e("Image ID",id + "");
         Drawable d = this.context.getResources().getDrawable(id);
 
         ViewHolder viewHolder;
@@ -88,6 +86,7 @@ public class LanguageListAdapter extends ArrayAdapter<HashMap<String, String>> {
 
         Typeface relway_regular = Typeface.createFromAsset(this.context.getAssets(), "fonts/Raleway-Regular.ttf");
 
+        //setting text to the current language title
         if(language.get("abbrev").equals("eng"))
             viewHolder.languageButton.setText(language.get("title") + " US");
         else if(language.get("abbrev").equals("euk"))
@@ -95,6 +94,7 @@ public class LanguageListAdapter extends ArrayAdapter<HashMap<String, String>> {
         else
             viewHolder.languageButton.setText(language.get("title"));
 
+        //setting image of the current language.
         viewHolder.languageButton.setTypeface(relway_regular);
         viewHolder.logoImage.setImageResource(id);
 

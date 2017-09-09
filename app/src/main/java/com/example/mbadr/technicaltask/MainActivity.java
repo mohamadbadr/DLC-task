@@ -19,9 +19,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Used typeFaces.
+        //although I knew that I should create global typeface class to access the typefaces in all other classes, but i forgot.
+
         Typeface relway_semiBold = Typeface.createFromAsset(getAssets(), "fonts/Raleway-SemiBold.ttf");
         Typeface relway_regular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
 
+
+        //assigning typefaces to text
         TextView sign_in_text = (TextView) findViewById(R.id.Sing_in_text);
         sign_in_text.setTypeface(relway_semiBold);
 
@@ -46,14 +51,16 @@ public class MainActivity extends AppCompatActivity {
         sign_up_button.setTypeface(relway_regular);
     }
 
+    //Button onClick actions
     public void onclick(View v)
     {
         EditText username = (EditText) findViewById(R.id.username_input_field);
         EditText password = (EditText) findViewById(R.id.password_input_field);
-        String s;
-        String p;
+        String s; // String that holds username.
+        String p; // String that holds password.
         switch (v.getId())
         {
+            //sign in button Action.
             case R.id.sign_in_button:
                 s = username.getText().toString();
                 p = password.getText().toString();
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(n);
                 }
                 break;
+            //other actions to be added
         }
     }
 }

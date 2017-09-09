@@ -1,5 +1,6 @@
 package com.example.mbadr.technicaltask;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.health.PackageHealthStats;
 import android.support.v7.app.AppCompatActivity;
@@ -22,10 +23,12 @@ public class booking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
+        // Used typefaces.
         Typeface relway_Bold = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Bold.ttf");
         Typeface relway_semiBold = Typeface.createFromAsset(getAssets(), "fonts/Raleway-SemiBold.ttf");
         Typeface relway_Regular = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
 
+        //assigning typefaces to text
         TextView book_flight_text =(TextView) findViewById(R.id.book_Flight_text);
         book_flight_text.setTypeface(relway_Bold);
 
@@ -75,15 +78,16 @@ public class booking extends AppCompatActivity {
 
         TextView firstclass_button= (TextView) findViewById(R.id.firstclass_button);
         firstclass_button.setTypeface(relway_Regular);
-
-
     }
 
+    //Buttons onClick actions
     public void onClick(View v)
     {
         Button b;
         switch (v.getId())
         {
+            // Add passenger actions
+            //just changing the text for now.
             case R.id.add_passenger_button:
                 TextView t = (TextView) findViewById(R.id.passenger_count);
                 passenger_coutn++;
@@ -91,20 +95,28 @@ public class booking extends AppCompatActivity {
                 t.setText(passenger_coutn + " Adults");
                 break;
 
+            // Economy button actions
             case R.id.economy_button:
                 b = (Button) findViewById(R.id.business_button);
+                //setting firstclass button background to match the desired design.
                 b.setBackgroundResource(R.drawable.curved_background_colored_edge_15dp);
+                //setting firstclass button text's color to match the desired design.
                 b.setTextColor(getResources().getColor(R.color.babyBlue));
 
                 b = (Button) findViewById(R.id.firstclass_button);
+                //setting firstclass button background to match the desired design.
                 b.setBackgroundResource(R.drawable.curved_background_colored_edge_15dp);
+                //setting firstclass button text's color to match the desired design.
                 b.setTextColor(getResources().getColor(R.color.babyBlue));
 
                 b = (Button) findViewById(R.id.economy_button);
+                //setting firstclass button background to match the desired design.
                 b.setBackgroundResource(R.drawable.curved_background_15dp);
+                //setting firstclass button text's color to match the desired design.
                 b.setTextColor(getResources().getColor(R.color.white));
                 break;
-
+            // Business button actions
+            //same way as economy button
             case R.id.business_button:
                 b = (Button) findViewById(R.id.business_button);
                 b.setBackgroundResource(R.drawable.curved_background_15dp);
@@ -119,6 +131,8 @@ public class booking extends AppCompatActivity {
                 b.setTextColor(getResources().getColor(R.color.babyBlue));
                 break;
 
+            // Business button actions
+            //same way as economy button
             case R.id.firstclass_button:
                 b = (Button) findViewById(R.id.business_button);
                 b.setBackgroundResource(R.drawable.curved_background_colored_edge_15dp);
@@ -132,6 +146,11 @@ public class booking extends AppCompatActivity {
                 b.setBackgroundResource(R.drawable.curved_background_colored_edge_15dp);
                 b.setTextColor(getResources().getColor(R.color.babyBlue));
                 break;
+
+            // Search button actions
+            case R.id.search:
+                Intent n = new Intent(this, Languages.class);
+                startActivity(n);
         }
     }
 }
