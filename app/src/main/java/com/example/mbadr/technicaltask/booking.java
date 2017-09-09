@@ -151,6 +151,15 @@ public class booking extends AppCompatActivity {
             case R.id.search:
                 Intent n = new Intent(this, Languages.class);
                 startActivity(n);
+                break;
+
+            case R.id.switch_button:
+                b =  (Button) findViewById(R.id.from_city_button);
+                String temp = b.getText().toString();
+                Button b2 = (Button) findViewById(R.id.to_city_button);
+                b.setText(b2.getText());
+                b2.setText(temp);
+
         }
     }
 }

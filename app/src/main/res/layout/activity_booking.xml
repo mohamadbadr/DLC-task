@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/from_text"
                     android:layout_centerHorizontal="true"
-                    android:text="Select City"
+                    android:text="Cairo"
                     android:textAllCaps="false"
                     android:textColor="#00A3DA"
                     android:textSize="20dp" />
@@ -104,10 +104,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
                 <Button
+                    android:id="@+id/switch_button"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_centerInParent="true"
                     android:background="@drawable/switch_button"
+                    android:onClick="onClick"
                     />
             </RelativeLayout>
 
@@ -131,10 +133,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/to_text"
                     android:layout_centerHorizontal="true"
-                    android:text="Select City"
+                    android:text="Toronto"
                     android:textAllCaps="false"
                     android:textColor="#00A3DA"
                     android:textSize="20dp"
+                    android:onClick="onClick"
                     />
             </RelativeLayout>
         </LinearLayout>
